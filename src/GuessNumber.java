@@ -7,33 +7,14 @@ import java.util.Scanner;
  * @author 周光兵
  **/
 public class GuessNumber {
+    private static Scanner scanner;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
 
         // 游戏设置
-        int rangeStart;
-        do {
-            System.out.print("请输入最小值：");
-            rangeStart = scanner.nextInt();
-
-            if (rangeStart >= 0) {
-                break;
-            }
-
-            System.out.println("最小值必须是正数或者0");
-        } while (true);
-
-        int rangeEnd;
-
-        do {
-            System.out.print("请输入最大值：");
-            rangeEnd = scanner.nextInt();
-
-            if (rangeEnd >= 0) {
-                break;
-            }
-            System.out.println("最大值必须是正数或者0");
-        } while (true);
+        int rangeStart = getMinValue();
+        int rangeEnd = getMaxValue();
 
         int mod = rangeEnd - rangeStart;
 
@@ -106,5 +87,36 @@ public class GuessNumber {
 
             System.out.println("共进行" + totalGameCount + "次游戏，猜中" + correctGuessCount + "次");
         }
+    }
+
+    private static int getMinValue() {
+        int value;
+
+        do {
+            System.out.print("请输入最小值：");
+            value = scanner.nextInt();
+
+            if (value >= 0) {
+                break;
+            }
+
+            System.out.println("最小值必须是正数或者0");
+        } while (true);
+
+        return value;
+    }
+
+    private static int getMaxValue() {
+        int value;
+
+        do {
+            System.out.print("请输入最大值：");
+            value = scanner.nextInt();
+
+            if (value >= 0) {
+                return value;
+            }
+            System.out.println("最大值必须是正数或者0");
+        } while (true);
     }
 }
