@@ -18,11 +18,10 @@ public class FileChannelDemo {
     public static void main(String[] args) throws IOException {
         File file = new File("build/data.txt");
 
-        try (
-                // 获取文件输出流
-                RandomAccessFile accessFile = new RandomAccessFile(file, "rw");
-                // 获取文件通道
-                FileChannel fileChannel = accessFile.getChannel()) {
+        try (// 获取文件输出流
+             RandomAccessFile accessFile = new RandomAccessFile(file, "rw");
+             // 获取文件通道
+             FileChannel fileChannel = accessFile.getChannel()) {
 
             // 创建缓冲区
             ByteBuffer buffers = ByteBuffer.allocate(1024);
