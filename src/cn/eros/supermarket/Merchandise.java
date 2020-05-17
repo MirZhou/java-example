@@ -10,29 +10,69 @@ public class Merchandise {
     /**
      * 商品ID
      */
-    String id;
+    private String id;
     /**
      * 商品名
      */
-    String name;
+    private String name;
     /**
      * 数量（库存）
      */
-    Integer count;
+    private Integer count;
     /**
      * 售价
      */
-    Double soldPrice;
+    private Double soldPrice;
     /**
      * 进价
      */
-    Double purchasePrice;
+    private Double purchasePrice;
 
-    public void init(String id, String name, Integer count, Double soldPrice, Double purchasePrice) {
+    public Merchandise(String id, String name, Integer count, Double soldPrice, Double purchasePrice) {
         this.id = id;
         this.name = name;
         this.count = count;
         this.soldPrice = soldPrice;
+        this.purchasePrice = purchasePrice;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public Double getSoldPrice() {
+        return soldPrice;
+    }
+
+    public void setSoldPrice(Double soldPrice) {
+        this.soldPrice = soldPrice;
+    }
+
+    public Double getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    public void setPurchasePrice(Double purchasePrice) {
         this.purchasePrice = purchasePrice;
     }
 }
