@@ -6,23 +6,33 @@
  **/
 public class BitCalc {
     public static void main(String[] args) {
-        int userRoleCode = 1;
+        int userRoleCode = 0;
 
+        // false false false false
+        System.out.println("======================");
+        outRole(userRoleCode);
+
+        userRoleCode += UserRole.NORMAL_USER.getRoleCode();
+
+        // true false false false
         System.out.println("======================");
         outRole(userRoleCode);
 
         userRoleCode += UserRole.JIGOU.getRoleCode();
 
+        // true true false false
         System.out.println("======================");
         outRole(userRoleCode);
 
         userRoleCode += UserRole.GOV.getRoleCode();
 
+        // true true true false
         System.out.println("======================");
         outRole(userRoleCode);
 
         userRoleCode += UserRole.PLATFORM.getRoleCode();
 
+        // true true true true
         System.out.println("======================");
         outRole(userRoleCode);
 
