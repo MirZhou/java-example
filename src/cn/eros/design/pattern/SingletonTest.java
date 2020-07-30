@@ -1,6 +1,5 @@
 package cn.eros.design.pattern;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.*;
 
@@ -10,7 +9,7 @@ import java.util.concurrent.*;
  * @author Eros
  */
 public class SingletonTest {
-    private static CountDownLatch latch = new CountDownLatch(2);
+    private final static CountDownLatch LATCH = new CountDownLatch(2);
 
     public static void main(String[] args) throws InterruptedException {
         /*
@@ -24,7 +23,7 @@ public class SingletonTest {
         testSingleton();
         testVolatileSingleton();
 
-        latch.await();
+        LATCH.await();
     }
 
     private static void testSingleton() {
@@ -55,7 +54,7 @@ public class SingletonTest {
             System.out.println(stringSet.size());
         }
 
-        latch.countDown();
+        LATCH.countDown();
     }
 
     private static void testVolatileSingleton() {
@@ -72,7 +71,6 @@ public class SingletonTest {
 
         executor.shutdown();
 
-
         try {
             executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         } catch (InterruptedException e) {
@@ -85,6 +83,6 @@ public class SingletonTest {
             System.out.println(stringSet.size());
         }
 
-        latch.countDown();
+        LATCH.countDown();
     }
 }
