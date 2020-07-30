@@ -6,7 +6,9 @@ package cn.eros.design.pattern;
  * @author Eros
  */
 public class VolatileSingleton {
-    // volatile负责保证可见性
+    /**
+     * volatile负责保证可见性
+     */
     private static volatile VolatileSingleton instance = null;
 
     private VolatileSingleton() {
