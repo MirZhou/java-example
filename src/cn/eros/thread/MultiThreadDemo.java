@@ -1,6 +1,10 @@
+package cn.eros.thread;
 
 /**
  * 测试线程上下文切换Demo
+ *
+ * @author Eros
+ * @date 2021/04/01 13:54
  */
 public class MultiThreadDemo {
     public static void main(String[] args) {
@@ -26,10 +30,10 @@ public class MultiThreadDemo {
                 threads[i].start();
             }
 
-            for (int i = 0; i < threads.length; i++) {
+            for (Thread thread : threads) {
                 try {
                     // 等待线程执行完毕
-                    threads[i].join();
+                    thread.join();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -63,7 +67,7 @@ public class MultiThreadDemo {
         public void start() {
             long start = System.currentTimeMillis();
 
-            for (int i = 0; i < super.count; i++) {
+            for (int i = 0; i < COUNT; i++) {
                 super.increaseCounter();
             }
 
@@ -75,7 +79,7 @@ public class MultiThreadDemo {
     }
 
     static abstract class ThreadContextSwitchTester {
-        public static final int count = 100000000;
+        public static final int COUNT = 100000000;
         public volatile int counter = 0;
 
         public int getCounter() {
